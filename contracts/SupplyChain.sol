@@ -1,4 +1,10 @@
-pragma solidity ^0.4.23;
+/*
+    This exercise has been updated to use Solidity version 0.5
+    Breaking changes from 0.4 to 0.5 can be found here: 
+    https://solidity.readthedocs.io/en/v0.5.0/050-breaking-changes.html
+*/
+
+pragma solidity ^0.5.0;
 
 contract SupplyChain {
 
@@ -57,7 +63,7 @@ contract SupplyChain {
 
   function addItem(string _name, uint _price) public returns(bool){
     emit ForSale(skuCount);
-    items[skuCount] = Item({name: _name, sku: skuCount, price: _price, state: State.ForSale, seller: msg.sender, buyer: 0});
+    items[skuCount] = Item({name: _name, sku: skuCount, price: _price, state: State.ForSale, seller: msg.sender, buyer: address(0)});
     skuCount = skuCount + 1;
     return true;
   }
